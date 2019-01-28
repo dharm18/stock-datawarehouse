@@ -1,0 +1,2805 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/12/2018 11:11:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6J6KKU4"
+  DTS:CreatorName="DESKTOP-6J6KKU4\Dharam"
+  DTS:DTSID="{50AAC41A-D50F-4265-A0D1-49010FE90292}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="135"
+  DTS:VersionGUID="{F05E6913-DEC0-4BEF-93D4-EF929E06EDCB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(local).stock]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{CBCC0D2E-1E5E-4016-A722-6431F77E8DAD}"
+      DTS:ObjectName="(local).stock">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local);User ID=vdharam18@outlook.com;Initial Catalog=stock;Provider=MSOLAP.8;Persist Security Info=True;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F2318363-6429-48EE-9EFB-94EB91E7267D}"
+      DTS:ObjectName="DESKTOP-6J6KKU4.Stocks">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-6J6KKU4;Initial Catalog=Stocks;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Revenue]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3C2FA1F7-779D-4F9A-A74F-D6A96F77512D}"
+      DTS:ObjectName="Revenue">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0027__x0027_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Ms in Data Analytics\DWBI\DWBI Project\Datasets\processed_data\quarterly_revenue_by_company.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;quarter&quot;"
+              DTS:DTSID="{36DCC9D6-4EA8-41CE-82B2-4E31FFCF0E64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;revenue&quot;"
+              DTS:DTSID="{9FBE0AA8-C676-4C84-A345-A2D4EC2123E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;year&quot;"
+              DTS:DTSID="{A629BF2A-1B83-4686-B81D-73F361ECD0A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;company_code&quot;"
+              DTS:DTSID="{369989B2-5FBB-4E1A-B922-2BBBD4FD7956}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Stocks]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5336F310-A1AF-4324-BFAE-299ECCE1D7F3}"
+      DTS:ObjectName="Stocks">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Ms in Data Analytics\DWBI\DWBI Project\Datasets\processed_data\daily_stocks_by_company.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{E2A2A2F0-F31F-4F50-8313-7C18EC585EED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Open"
+              DTS:DTSID="{D401CFD7-4B48-4981-9ABF-E3373B942E47}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="High"
+              DTS:DTSID="{A25D6490-9993-41FC-989B-62FF6545C079}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Low"
+              DTS:DTSID="{5A98D758-3ADE-4B8C-8B77-632C31772E4F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Close"
+              DTS:DTSID="{A28A1978-5CFE-405F-8E73-A67AED5C1F42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Volume"
+              DTS:DTSID="{D48BCBDF-FABB-4920-83CA-1BE82A0FE1CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="symbol_code"
+              DTS:DTSID="{0D164EBE-0107-4EFF-A935-AE4D0B4EE601}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Stocks Company]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EC719B60-8019-4B2B-81FB-CE170DAAC93E}"
+      DTS:ObjectName="Stocks Company">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Ms in Data Analytics\DWBI\DWBI Project\Datasets\processed_data\stocks_by_company.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="stock_symbol"
+              DTS:DTSID="{E7272FE8-DFA4-468C-95B1-0604926F2DB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Company"
+              DTS:DTSID="{E9CFA668-EC87-477A-8206-5D9AC2952844}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sector"
+              DTS:DTSID="{11B117B7-FEA2-46C8-B16B-988AAA8E6159}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Industry"
+              DTS:DTSID="{2EC6B1D8-5DE9-417F-8014-DB0CCE2FD359}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="city"
+              DTS:DTSID="{5C3F0B71-BE75-47FA-86E9-640F17C30E98}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="location"
+              DTS:DTSID="{0316CCEA-BFF2-4BA7-BE88-0695EC930028}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[StockTwits]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D6286C67-5D5A-4A4B-B7AF-19D9986BD248}"
+      DTS:ObjectName="StockTwits">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Ms in Data Analytics\DWBI\DWBI Project\Datasets\processed_data\daily_sentiments_by_stocks.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date"
+              DTS:DTSID="{45C52B13-CF87-492E-A6BD-7629EEFE506C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="company_code"
+              DTS:DTSID="{476F5822-3D60-4032-BB21-662F0D5FE4FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="afinnSentiment"
+              DTS:DTSID="{D62300E2-A8F2-46C6-915A-93E5767F3D03}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cube Deployment"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{544E2AF3-EE83-48F5-A70C-1E1BA565A7EF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cube Deployment">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Cube Deployment\Cube Deployment"
+          DTS:CreationName="Microsoft.DTSProcessingTask"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{43D4E55A-52C9-4DB3-AE93-CD2C7BA0563E}"
+          DTS:ExecutableType="Microsoft.DTSProcessingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Cube Deployment"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="(local).stock"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;stock&lt;/DatabaseID&gt;&#xA;      &lt;CubeID&gt;Stocks 1&lt;/CubeID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;stock&lt;/DatabaseID&gt;&#xA;      &lt;CubeID&gt;Stocks&lt;/CubeID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Cube Deployment\Dimesions Deployment"
+          DTS:CreationName="Microsoft.DTSProcessingTask"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{73F43CDB-AD14-485F-AEC0-B3A4763C25C7}"
+          DTS:ExecutableType="Microsoft.DTSProcessingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Dimesions Deployment"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="(local).stock"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;stock&lt;/DatabaseID&gt;&#xA;      &lt;DimensionID&gt;Dim Location&lt;/DimensionID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;stock&lt;/DatabaseID&gt;&#xA;      &lt;DimensionID&gt;Dim Stock Company&lt;/DimensionID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;stock&lt;/DatabaseID&gt;&#xA;      &lt;DimensionID&gt;Dim Quarter&lt;/DimensionID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot; xmlns:ddl500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500&quot; xmlns:ddl500_500=&quot;http://schemas.microsoft.com/analysisservices/2013/engine/500/500&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;stock&lt;/DatabaseID&gt;&#xA;      &lt;DimensionID&gt;Dim Date&lt;/DimensionID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessUpdate&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Cube Deployment.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F5DE7798-B7CE-4922-90BF-DC2335373A49}"
+          DTS:From="Package\Cube Deployment\Dimesions Deployment"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Cube Deployment\Cube Deployment" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Source Extractions"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{398446D5-DDC8-4252-9095-DD7A3AD05623}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Source Extractions">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Data Source Extractions\Extract Companies list"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Extract Companies list"
+          DTS:DTSID="{79854E59-8450-410E-91A7-B6496E4C01C9}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract Companies list"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Program Files\R\R-3.5.1\bin\x64\Rscript.exe"
+              Arguments="S&amp;P500CompaniesExtraction.R"
+              WorkingDirectory="D:\Ms in Data Analytics\DWBI\DWBI Project\Source Code\StockDWBI" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Data Source Extractions\Extract company revenues"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{77544F88-72E3-4433-8DB9-5A1EB484C313}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract company revenues"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Program Files\R\R-3.5.1\bin\x64\Rscript.exe"
+              Arguments="StatistaRevenueCleaning.R"
+              WorkingDirectory="D:\Ms in Data Analytics\DWBI\DWBI Project\Source Code\StockDWBI" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Data Source Extractions\Extract Stocks"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{081FC886-C355-48FD-9F66-0E45F413AF95}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract Stocks"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Program Files\R\R-3.5.1\bin\x64\Rscript.exe"
+              Arguments="StockMarketDataCleaning.R"
+              WorkingDirectory="D:\Ms in Data Analytics\DWBI\DWBI Project\Source Code\StockDWBI" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Data Source Extractions\Extract stocktwits"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{3161B10C-406A-4C18-A1BA-51C4734F0330}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract stocktwits"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Program Files\R\R-3.5.1\bin\x64\Rscript.exe"
+              Arguments="StockTwitsExtraction.R"
+              WorkingDirectory="D:\Ms in Data Analytics\DWBI\DWBI Project\Source Code\StockDWBI" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Data Source Extractions\Save Stocktwits Into MySQL"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{78B8E989-27B1-428F-8F9B-B2E257734D7F}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Save Stocktwits Into MySQL"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Program Files\R\R-3.5.1\bin\x64\Rscript.exe"
+              Arguments="StockTwitsIntoMySQL.R"
+              WorkingDirectory="D:\Ms in Data Analytics\DWBI\DWBI Project\Source Code\StockDWBI" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Data Source Extractions\Stocktwits Sentiment"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{BC892E78-DCE9-4FBE-BEA2-94E7EF0A1D08}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Stocktwits Sentiment"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Program Files\R\R-3.5.1\bin\x64\Rscript.exe"
+              Arguments="StockTwitsSentimentsAnalysis.R"
+              WorkingDirectory="D:\Ms in Data Analytics\DWBI\DWBI Project\Source Code\StockDWBI" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Data Source Extractions.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CA2F4F65-A389-4C0D-BBD6-5BA8D96619D6}"
+          DTS:From="Package\Data Source Extractions\Extract Companies list"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Data Source Extractions\Extract Stocks" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Data Source Extractions.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{6D23CAF0-5AD9-4061-9742-9984E42EE418}"
+          DTS:From="Package\Data Source Extractions\Extract Companies list"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Data Source Extractions\Extract stocktwits" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Data Source Extractions.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{B1A57F8F-9C08-440E-B87E-ED531EECFB39}"
+          DTS:From="Package\Data Source Extractions\Extract stocktwits"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Data Source Extractions\Save Stocktwits Into MySQL" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Data Source Extractions.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{9E9467FD-8553-4DA5-8190-249FCA81CD23}"
+          DTS:From="Package\Data Source Extractions\Save Stocktwits Into MySQL"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Data Source Extractions\Stocktwits Sentiment" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populate Dimensions &amp; Facts"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BDAA92BF-F2F6-4F17-9EEE-59DC7B718EFB}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate Dimensions &amp; Facts">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Populate Dimensions &amp; Facts\Upload to dimension tables"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DDD18A72-8755-49DD-818B-A611A456BE47}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Upload to dimension tables"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F2318363-6429-48EE-9EFB-94EB91E7267D}"
+              SQLTask:SqlStatementSource="TRUNCATE table [dbo].[DimQuarter]&#xA;&#xA;INSERT INTO [dbo].[DimQuarter]&#xA;           ([quarter]&#xA;           ,[year])&#xA;select distinct [quarter],[YEAR] from RawData_Revenue;&#xA;     &#xA;TRUNCATE table [dbo].[DimStockCompany]&#xA;INSERT INTO&#x9;[dbo].[DimStockCompany]&#xA;&#x9; (&#xA;&#x9;[stock_symbol],&#xA;&#x9;[Company],&#xA;&#x9;[Sector],&#xA;&#x9;[Industry]&#xA;&#x9; )&#xA;&#x9; select [stock_symbol]&#xA;      ,[Company]&#xA;      ,[Sector]&#xA;      ,[Industry]&#xA; from RawData_StockCompany;&#xA;&#xA;TRUNCATE table [dbo].[DimDate]&#xA;INSERT INTO&#x9;[dbo].[DimDate]&#xA;&#x9; (&#xA;&#x9;[Day],&#xA;&#x9;[Week],&#xA;&#x9;[Month],&#xA;&#x9;[Quarter],&#xA;&#x9;[Year]&#xA;&#x9; )&#xA;select distinct DATEPART(DAY,a.Date) as Day,DATEPART(WK,a.Date) as Week,DATEPART(MM,a.Date) as Month,DATEPART(QQ,a.Date) as Quarter,&#xA;  DATEPART(year,a.Date) as Year&#xA;  from RawData_Stocks a &#xA;  left join RawData_StockTwits b on a.symbol_code = b.company_code and a.Date = b.date&#xA;  order by Year,Quarter,Month,Week,Day;&#xA;&#xA;TRUNCATE table [dbo].[DimLocation]&#xA;INSERT INTO&#x9;[dbo].[DimLocation](city,state)&#xA;select distinct city,location from RawData_StockCompany; &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Populate Dimensions &amp; Facts\Upload to Fact table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D1A7105D-2571-47FB-BAC2-25DE27207782}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Upload to Fact table"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{F2318363-6429-48EE-9EFB-94EB91E7267D}"
+              SQLTask:SqlStatementSource="TRUNCATE table [dbo].[ss_fact_table]&#xA;INSERT INTO [dbo].[ss_fact_table]&#xA;           ([date_id]&#xA;           ,[Company_id]&#xA;            ,[Location_id]&#x9;&#xA;           ,[Open]&#xA;           ,[Close]&#xA;           ,[High]&#xA;           ,[Low]&#xA;           ,[Volume]&#xA;           ,[Sentiments_Score]&#xA;)&#xA;&#x9; SELECT &#xA;d.Date_Id&#xA;,sc.Company_id,Location_id&#xA;,q.[Open],q.[Close],q.[High],q.[Low],q.[Volume],t.[affinSentiment]&#xA;from [dbo].[DimStockCompany] sc&#xA;INNER JOIN RawData_StockCompany rc on rc.stock_symbol=sc.stock_symbol&#xA;INNER JOIN DimLocation dl on dl.city=rc.city and dl.state = rc.location&#xA;INNER JOIN [RawData_Stocks] q ON q.symbol_code=sc.stock_symbol&#xA;INNER JOIN [DimDate] d on DATEFROMPARTS(d.Year, d.Month,d.Day) = q.Date&#xA;LEFT JOIN [RawData_StockTwits] t ON t.company_code=q.symbol_code AND t.date=q.Date&#xA;&#xA;&#xA;USE [Stocks]&#xA;GO&#xA;TRUNCATE TABLE [dbo].[q_fact_table];&#xA;INSERT INTO [dbo].[q_fact_table]&#xA;           ([quarter_id]&#xA;           ,[Company_id]&#xA;&#x9;&#x9;   ,[Location_id]&#xA;           ,[revenue]&#xA;           ,[Open]&#xA;           ,[Close]&#xA;           ,[High]&#xA;           ,[Low]&#xA;           ,[Volume])&#xA;SELECT DISTINCT&#xA;d.quarter_id&#xA;,sc.Company_id,&#xA;Location_id,&#xA;r.revenue&#xA;,q.Opening&#xA;,q.Closing&#xA;,q.High&#xA;,q.Low&#xA;,q.volume&#xA;from [dbo].[DimStockCompany] sc&#xA;INNER JOIN RawData_StockCompany rc on rc.stock_symbol=sc.stock_symbol&#xA;INNER JOIN DimLocation dl on dl.city=rc.city and dl.state = rc.location&#xA;INNER JOIN (&#xA;&#x9;&#xA;SELECT &#xA;    Opening,&#xA;    MAX(High) AS High,&#xA;    MIN(Low) AS Low,&#xA;    Closing,&#xA;    qt,year,&#xA;&#x9;symbol_code,&#xA;&#x9;sum(volume) as volume&#xA;FROM &#xA;(&#xA;    SELECT distinct FIRST_VALUE([Open]) OVER (PARTITION BY DATEPART(QUARTER, Date),DATEPART(YEAR, Date) ORDER BY DATE) AS Opening,&#xA;           FIRST_VALUE([Close]) OVER (PARTITION BY DATEPART(QUARTER, Date),DATEPART(YEAR, Date) ORDER BY DATE DESC) AS Closing,&#xA;           DATEPART(QUARTER, Date) qt,DATEPART(YEAR, Date) AS year&#xA;           ,*&#xA;    FROM [RawData_Stocks] &#xA;) AS qt_Temp&#xA;GROUP BY symbol_code,year, qt, Opening, Closing&#xA;) as q ON q.symbol_code=sc.stock_symbol&#xA;INNER JOIN [DimQuarter] d on REPLACE(d.quarter,'Q','') = q.qt and d.year = q.year&#xA;INNER JOIN [RawData_Revenue] r on r.quarter=d.quarter and r.year=d.year and r.company_code = sc.stock_symbol&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Populate Dimensions &amp; Facts.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7ADD203B-488E-4DDC-B420-15B4CBC00825}"
+          DTS:From="Package\Populate Dimensions &amp; Facts\Upload to dimension tables"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Populate Dimensions &amp; Facts\Upload to Fact table" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Staging Arena"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{96A7DCB3-892A-41A7-91BB-8F38577ACA63}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Staging Arena">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Staging Arena\Revenue"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{76A05D3B-7679-4158-8917-F9ACC1C5F6B2}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Revenue"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Staging Arena\Revenue\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="6153"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Staging Arena\Revenue\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Revenue]"
+                      connectionManagerRefId="Package.ConnectionManagers[Revenue]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;quarter&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;quarter&quot;]"
+                          length="50"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;quarter&quot;]"
+                          name="&quot;quarter&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;revenue&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;revenue&quot;]"
+                          length="50"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;revenue&quot;]"
+                          name="&quot;revenue&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;year&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;year&quot;]"
+                          length="50"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;year&quot;]"
+                          name="&quot;year&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;company_code&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;company_code&quot;]"
+                          length="50"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;company_code&quot;]"
+                          name="&quot;company_code&quot;"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;quarter&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;quarter&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;revenue&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;revenue&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;year&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;year&quot;" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[&quot;company_code&quot;]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="&quot;company_code&quot;" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Staging Arena\Revenue\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[RawData_Revenue]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Staging Arena\Revenue\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;quarter&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;quarter&quot;"
+                          externalMetadataColumnId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;quarter&quot;]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;revenue&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;revenue&quot;"
+                          externalMetadataColumnId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;revenue&quot;]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;year&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;year&quot;"
+                          externalMetadataColumnId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;year&quot;]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[&quot;company_code&quot;]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="&quot;company_code&quot;"
+                          externalMetadataColumnId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[company_code]"
+                          lineageId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;company_code&quot;]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="quarter" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[revenue]"
+                          dataType="numeric"
+                          name="revenue"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[company_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="company_code" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Staging Arena\Revenue\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\Revenue\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Staging Arena\Revenue\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\Revenue\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Staging Arena\Revenue.Paths[Flat File Source Output]"
+                  endId="Package\Staging Arena\Revenue\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Staging Arena\Revenue\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Staging Arena\StockCompany"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D7818B88-2656-4E2D-B457-294620453389}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="StockCompany"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Staging Arena\StockCompany\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="6153"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Staging Arena\StockCompany\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Stocks Company]"
+                      connectionManagerRefId="Package.ConnectionManagers[Stocks Company]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[stock_symbol]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[stock_symbol]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[stock_symbol]"
+                          name="stock_symbol"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Company]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Company]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Company]"
+                          name="Company"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Sector]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sector]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Sector]"
+                          name="Sector"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Industry]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Industry]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Industry]"
+                          name="Industry"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
+                          name="city"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[location]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[location]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[location]"
+                          name="location"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[stock_symbol]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="stock_symbol" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Company]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Company" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sector]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sector" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Industry]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Industry" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[location]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="location" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Staging Arena\StockCompany\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[RawData_StockCompany]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Staging Arena\StockCompany\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[stock_symbol]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="stock_symbol"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stock_symbol]"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[stock_symbol]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Company]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Company"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Company]"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Company]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sector]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Sector"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sector]"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Sector]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Industry]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Industry"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Industry]"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[Industry]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="city"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[city]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[location]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="location"
+                          externalMetadataColumnId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                          lineageId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output].Columns[location]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stock_symbol]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="stock_symbol" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Company]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Company" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sector]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Sector" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Industry]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Industry" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="location" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Staging Arena\StockCompany\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\StockCompany\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Staging Arena\StockCompany\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\StockCompany\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Staging Arena\StockCompany.Paths[Flat File Source Output]"
+                  endId="Package\Staging Arena\StockCompany\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Staging Arena\StockCompany\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Staging Arena\Stocks"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D9899D5A-C6BD-4A60-9CEB-3BC162DE9733}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Stocks"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Staging Arena\Stocks\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="16393"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Staging Arena\Stocks\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Stocks]"
+                      connectionManagerRefId="Package.ConnectionManagers[Stocks]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Date]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Date]"
+                          name="Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Open]"
+                          dataType="r4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Open]"
+                          name="Open"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[High]"
+                          dataType="r4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[High]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[High]"
+                          name="High"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Low]"
+                          dataType="r4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Low]"
+                          name="Low"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Close]"
+                          dataType="r4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Close]"
+                          name="Close"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Volume]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Volume]"
+                          name="Volume"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[symbol_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[symbol_code]"
+                          length="50"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[symbol_code]"
+                          name="symbol_code"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                          dataType="date"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Open]"
+                          dataType="r4"
+                          name="Open" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[High]"
+                          dataType="r4"
+                          name="High" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Low]"
+                          dataType="r4"
+                          name="Low" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Close]"
+                          dataType="r4"
+                          name="Close" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Volume]"
+                          dataType="i4"
+                          name="Volume" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[symbol_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="symbol_code" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Staging Arena\Stocks\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[RawData_Stocks]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Staging Arena\Stocks\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                          cachedDataType="date"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Open]"
+                          cachedDataType="r4"
+                          cachedName="Open"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Open]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[High]"
+                          cachedDataType="r4"
+                          cachedName="High"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[High]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[High]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Low]"
+                          cachedDataType="r4"
+                          cachedName="Low"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Low]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Low]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Close]"
+                          cachedDataType="r4"
+                          cachedName="Close"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Close]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Close]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Volume]"
+                          cachedDataType="i4"
+                          cachedName="Volume"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Volume]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[Volume]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[symbol_code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="symbol_code"
+                          externalMetadataColumnId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[symbol_code]"
+                          lineageId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output].Columns[symbol_code]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Open]"
+                          dataType="r4"
+                          name="Open" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[High]"
+                          dataType="r4"
+                          name="High" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Low]"
+                          dataType="r4"
+                          name="Low" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Close]"
+                          dataType="r4"
+                          name="Close" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Volume]"
+                          dataType="i8"
+                          name="Volume" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          dataType="dbTimeStamp"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[symbol_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="symbol_code" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Staging Arena\Stocks\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\Stocks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Staging Arena\Stocks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\Stocks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Staging Arena\Stocks.Paths[Flat File Source Output]"
+                  endId="Package\Staging Arena\Stocks\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Staging Arena\Stocks\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Staging Arena\StocksTwits"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9550C07D-A510-4E10-9EBF-25148FB3EC68}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="StocksTwits"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Staging Arena\StocksTwits\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="16393"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Staging Arena\StocksTwits\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[StockTwits]"
+                      connectionManagerRefId="Package.ConnectionManagers[StockTwits]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[company_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[company_code]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[company_code]"
+                          name="company_code"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[date]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[date]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[date]"
+                          name="date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[afinnSentiment]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[afinnSentiment]"
+                          length="50"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[afinnSentiment]"
+                          name="afinnSentiment"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[company_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="company_code" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[date]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[afinnSentiment]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="afinnSentiment" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Staging Arena\StocksTwits\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[RawData_StockTwits]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-6J6KKU4.Stocks]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[company_code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="company_code"
+                          externalMetadataColumnId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[company_code]"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[company_code]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="date"
+                          externalMetadataColumnId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[date]" />
+                        <inputColumn
+                          refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[afinnSentiment]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="afinnSentiment"
+                          externalMetadataColumnId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[affinSentiment]"
+                          lineageId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output].Columns[afinnSentiment]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[company_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="company_code" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                          dataType="dbDate"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[affinSentiment]"
+                          dataType="numeric"
+                          name="affinSentiment"
+                          precision="18"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\StocksTwits\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Staging Arena\StocksTwits\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Staging Arena\StocksTwits\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Staging Arena\StocksTwits.Paths[Flat File Source Output]"
+                  endId="Package\Staging Arena\StocksTwits\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Staging Arena\StocksTwits\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3540D1F0-E1B8-48AC-AE2D-F4EA3AF5CEC9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Tables"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F2318363-6429-48EE-9EFB-94EB91E7267D}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[Stocks].[dbo].[RawData_Revenue]') IS NOT NULL&#xA;  TRUNCATE TABLE [Stocks].[dbo].[RawData_Revenue];&#xA;&#xA;IF OBJECT_ID('[Stocks].[dbo].[RawData_Stocks]') IS NOT NULL&#xA;  TRUNCATE TABLE [Stocks].[dbo].[RawData_Stocks];&#xA;&#xA;IF OBJECT_ID('[Stocks].[dbo].[RawData_StockCompany]') IS NOT NULL&#xA;  TRUNCATE TABLE [Stocks].[dbo].[RawData_StockCompany];&#xA;&#xA;IF OBJECT_ID('[Stocks].[dbo].[RawData_StockTwits]') IS NOT NULL&#xA;  TRUNCATE TABLE [Stocks].[dbo].[RawData_StockTwits];&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EF28C910-0758-45B2-B7F4-BBB2DF93B57B}"
+      DTS:From="Package\Truncate Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Staging Arena" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B73C7375-843A-41C6-9B06-E6283170ECBA}"
+      DTS:From="Package\Staging Arena"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Populate Dimensions &amp; Facts" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{85D20666-0410-4C59-AFC5-2A0532913073}"
+      DTS:From="Package\Populate Dimensions &amp; Facts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Cube Deployment" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{DB77E08E-6C4E-4BDB-B8D7-D46A41957A6D}"
+      DTS:From="Package\Data Source Extractions"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Truncate Tables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="236,41.6"
+          Id="Package\Cube Deployment\Cube Deployment"
+          TopLeft="24.9142848579252,82.6352995400611" />
+        <NodeLayout
+          Size="236,41.6"
+          Id="Package\Cube Deployment\Dimesions Deployment"
+          TopLeft="28,7.71764860318194" />
+        <EdgeLayout
+          Id="Package\Cube Deployment.PrecedenceConstraints[Constraint]"
+          TopLeft="144.457142428963,49.3176486031819">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.3176509368792"
+              Start="0,0"
+              End="0,25.8176509368792">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8176509368792" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="274.4,148.8"
+          Size="274.4,192"
+          Id="Package\Cube Deployment"
+          TopLeft="809.428584668101,402.870592516598" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Data Source Extractions\Extract Companies list"
+          TopLeft="19.3142875145894,5.63137359289152" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Data Source Extractions\Extract company revenues"
+          TopLeft="13.3714293985951,153.505885298662" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\Data Source Extractions\Extract Stocks"
+          TopLeft="20.4571446769093,72.9254921837249" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Data Source Extractions\Extract stocktwits"
+          TopLeft="200.838099584774,68.1411781293436" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Data Source Extractions\Save Stocktwits Into MySQL"
+          TopLeft="222.247623118576,142.478434103776" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Data Source Extractions\Stocktwits Sentiment"
+          TopLeft="173.676193719981,225.066670556162" />
+        <EdgeLayout
+          Id="Package\Data Source Extractions.PrecedenceConstraints[Constraint]"
+          TopLeft="108.914287514589,47.2313735928915">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.45714283768014,25.6941185908334"
+              Start="0,0"
+              End="-8.45714283768014,18.1941185908334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.8470592954167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.8470592954167"
+                    Point2="0,12.8470592954167"
+                    Point3="-4,12.8470592954167" />
+                  <mssgle:LineSegment
+                    End="-4.45714283768014,12.8470592954167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.45714283768014,12.8470592954167"
+                    Point2="-8.45714283768014,12.8470592954167"
+                    Point3="-8.45714283768014,16.8470592954167" />
+                  <mssgle:LineSegment
+                    End="-8.45714283768014,18.1941185908334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Source Extractions.PrecedenceConstraints[Constraint 1]"
+          TopLeft="198.514287514589,26.4313735928915">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.7238120701849,41.7098045364521"
+              Start="0,0"
+              End="82.7238120701849,34.2098045364521">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.7238120701849,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.7238120701849,0"
+                    Point2="82.7238120701849,0"
+                    Point3="82.7238120701849,4" />
+                  <mssgle:LineSegment
+                    End="82.7238120701849,34.2098045364521" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Source Extractions.PrecedenceConstraints[Constraint 2]"
+          TopLeft="281.238099584774,109.741178129344">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.6095235338017,32.7372559744319"
+              Start="0,0"
+              End="30.6095235338017,25.2372559744319">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.368627987216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.368627987216"
+                    Point2="0,16.368627987216"
+                    Point3="4,16.368627987216" />
+                  <mssgle:LineSegment
+                    End="26.6095235338017,16.368627987216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.6095235338017,16.368627987216"
+                    Point2="30.6095235338017,16.368627987216"
+                    Point3="30.6095235338017,20.368627987216" />
+                  <mssgle:LineSegment
+                    End="30.6095235338017,25.2372559744319" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Source Extractions.PrecedenceConstraints[Constraint 3]"
+          TopLeft="311.847623118576,184.078434103776">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48.571429398595,40.9882364523867"
+              Start="0,0"
+              End="-48.571429398595,33.4882364523867">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.4941182261934" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.4941182261934"
+                    Point2="0,20.4941182261934"
+                    Point3="-4,20.4941182261934" />
+                  <mssgle:LineSegment
+                    End="-44.571429398595,20.4941182261934" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-44.571429398595,20.4941182261934"
+                    Point2="-48.571429398595,20.4941182261934"
+                    Point3="-48.571429398595,24.4941182261934" />
+                  <mssgle:LineSegment
+                    End="-48.571429398595,33.4882364523867" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="414.4,288.8"
+          Size="414.4,332"
+          Id="Package\Data Source Extractions"
+          TopLeft="42.4761906545986,8.97254914544442" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Populate Dimensions &amp; Facts\Upload to dimension tables"
+          TopLeft="25.3714313740634,14.5882396612201" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Populate Dimensions &amp; Facts\Upload to Fact table"
+          TopLeft="28.800002861023,87.4352988107808" />
+        <EdgeLayout
+          Id="Package\Populate Dimensions &amp; Facts.PrecedenceConstraints[Constraint]"
+          TopLeft="106.571431374063,56.1882396612201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.62857148695961,31.2470591495607"
+              Start="0,0"
+              End="8.62857148695961,23.7470591495607">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.6235295747803" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.6235295747803"
+                    Point2="0,15.6235295747803"
+                    Point3="4,15.6235295747803" />
+                  <mssgle:LineSegment
+                    End="4.62857148695961,15.6235295747803" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.62857148695961,15.6235295747803"
+                    Point2="8.62857148695961,15.6235295747803"
+                    Point3="8.62857148695961,19.6235295747803" />
+                  <mssgle:LineSegment
+                    End="8.62857148695961,23.7470591495607" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="238.4,184"
+          Size="238.4,227.2"
+          Id="Package\Populate Dimensions &amp; Facts"
+          TopLeft="510.000008140291,407.282358653158" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Staging Arena\Revenue"
+          TopLeft="7.08571548267282,16.4705895994773" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Staging Arena\StockCompany"
+          TopLeft="418.171436210555,15.2000011668486" />
+        <NodeLayout
+          Size="108.8,41.6"
+          Id="Package\Staging Arena\Stocks"
+          TopLeft="149.371432191498,17.6941190284016" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\Staging Arena\StocksTwits"
+          TopLeft="267.20000504085,15.2000011668485" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="578.4,80.8"
+          Size="578.4,124"
+          Id="Package\Staging Arena"
+          TopLeft="502.571436585213,231.511766391807" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Truncate Tables"
+          TopLeft="629.838105323849,109.047060352874" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="706.638105323849,150.647060352874">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.1333312613634,80.864706038933"
+              Start="0,0"
+              End="85.1333312613634,73.364706038933">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.4323530194665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.4323530194665"
+                    Point2="0,40.4323530194665"
+                    Point3="4,40.4323530194665" />
+                  <mssgle:LineSegment
+                    End="81.1333312613634,40.4323530194665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.1333312613634,40.4323530194665"
+                    Point2="85.1333312613634,40.4323530194665"
+                    Point3="85.1333312613634,44.4323530194665" />
+                  <mssgle:LineSegment
+                    End="85.1333312613634,73.364706038933" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="791.771436585213,355.511766391807">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-162.571428444921,51.7705922613515"
+              Start="0,0"
+              End="-162.571428444921,44.2705922613515">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8852961306757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8852961306757"
+                    Point2="0,25.8852961306757"
+                    Point3="-4,25.8852961306757" />
+                  <mssgle:LineSegment
+                    End="-158.571428444921,25.8852961306757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-158.571428444921,25.8852961306757"
+                    Point2="-162.571428444921,25.8852961306757"
+                    Point3="-162.571428444921,29.8852961306757" />
+                  <mssgle:LineSegment
+                    End="-162.571428444921,44.2705922613515" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="748.400008140291,500.276475584878">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.0285765278099,0"
+              Start="0,0"
+              End="53.5285765278099,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.5285765278099,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="456.876190654599,174.972549145444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="172.961914669251,-45.1254887925706"
+              Start="0,0"
+              End="165.461914669251,-45.1254887925706">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="82.4809573346254,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.4809573346254,0"
+                    Point2="86.4809573346254,0"
+                    Point3="86.4809573346254,-4" />
+                  <mssgle:LineSegment
+                    End="86.4809573346254,-41.1254887925706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.4809573346254,-41.1254887925706"
+                    Point2="86.4809573346254,-45.1254887925706"
+                    Point3="90.4809573346254,-45.1254887925706" />
+                  <mssgle:LineSegment
+                    End="165.461914669251,-45.1254887925706" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[(local).stock]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <TaskHost
+    design-time-name="Package\Staging Arena\Revenue">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Staging Arena\Revenue\OLE DB Destination"
+          TopLeft="67.4285725768732,146.823531470909" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Staging Arena\Revenue\Flat File Source"
+          TopLeft="76.0000012942723,63.6235303040607" />
+        <EdgeLayout
+          Id="Package\Staging Arena\Revenue.Paths[Flat File Source Output]"
+          TopLeft="151.914286935573,105.223530304061">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.6000011668486"
+              Start="0,0"
+              End="0,34.1000011668486">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1000011668486" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging Arena\Revenue\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Staging Arena\StockCompany">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Staging Arena\StockCompany\Flat File Source"
+          TopLeft="102.85714460879,46.4941182991213" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Staging Arena\StockCompany\OLE DB Destination"
+          TopLeft="94.8571444725504,167.011767048159" />
+        <EdgeLayout
+          Id="Package\Staging Arena\StockCompany.Paths[Flat File Source Output]"
+          TopLeft="179.05714454067,88.0941182991213">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.917648749038"
+              Start="0,0"
+              End="0,71.417648749038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.417648749038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging Arena\StockCompany\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Staging Arena\Stocks">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Staging Arena\Stocks\OLE DB Destination"
+          TopLeft="124.8,160.8" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Staging Arena\Stocks\Flat File Source"
+          TopLeft="132,60" />
+        <EdgeLayout
+          Id="Package\Staging Arena\Stocks.Paths[Flat File Source Output]"
+          TopLeft="208.6,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.2"
+              Start="0,0"
+              End="0,51.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging Arena\Stocks\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Staging Arena\StocksTwits">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Staging Arena\StocksTwits\OLE DB Destination"
+          TopLeft="140,169.6" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Staging Arena\StocksTwits\Flat File Source"
+          TopLeft="144,79.2" />
+        <EdgeLayout
+          Id="Package\Staging Arena\StocksTwits.Paths[Flat File Source Output]"
+          TopLeft="222.2,120.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.8"
+              Start="0,0"
+              End="0,41.3">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.3" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging Arena\StocksTwits\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,595 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20183.18.1018.1932                               -->
+<workbook original-version='18.1' source-build='2018.3.0 (20183.18.1018.1932)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Stocks Cube (stock)' inline='true' name='msolap.0xsipeu1bufx7i11nu5dv0r0ymri' version='18.1'>
+      <connection authentication='sspi' class='msolap' convert-to-extract-prompted='no' dbname='stock' filename='' server='(local)' tablename='Stocks Cube'>
+        <metadata-records>
+          <metadata-record class='dimension'>
+            <remote-name>[Dim Company]</remote-name>
+            <remote-type>0</remote-type>
+            <local-name>[Dim Company]</local-name>
+            <remote-alias>[Dim Company]</remote-alias>
+            <caption>Dim Company</caption>
+            <aggregation>Count</aggregation>
+            <approx-count>5</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DEFAULT_HIERARCHY'>&quot;[Dim Company].[Company Code]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='dimension'>
+            <remote-name>[Dim Quarter]</remote-name>
+            <remote-type>0</remote-type>
+            <local-name>[Dim Quarter]</local-name>
+            <remote-alias>[Dim Quarter]</remote-alias>
+            <caption>Dim Quarter</caption>
+            <aggregation>Count</aggregation>
+            <approx-count>57</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DEFAULT_HIERARCHY'>&quot;[Dim Quarter].[Year]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='dimension'>
+            <remote-name>[Measures]</remote-name>
+            <remote-type>1</remote-type>
+            <local-name>[Measures]</local-name>
+            <remote-alias>[Measures]</remote-alias>
+            <caption>Measures</caption>
+            <local-type>real</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>8</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DEFAULT_HIERARCHY'>&quot;[Measures]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='hierarchy'>
+            <remote-name>[Dim Company].[Company Code]</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Dim Company].[Company Code]</local-name>
+            <parent-name>[Dim Company]</parent-name>
+            <remote-alias>[Dim Company].[Company Code]</remote-alias>
+            <caption>Company Code</caption>
+            <aggregation>Count</aggregation>
+            <approx-count>5</approx-count>
+            <contains-null>true</contains-null>
+            <default>true</default>
+            <attributes>
+              <attribute datatype='string' name='ALL_MEMBER'>&quot;[Dim Company].[Company Code].[All]&quot;</attribute>
+              <attribute datatype='string' name='HIERARCHY_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='boolean' name='HIERARCHY_USER'>false</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='level'>
+            <remote-name>[Dim Company].[Company Code].[(All)]</remote-name>
+            <remote-type>all</remote-type>
+            <local-name>[Dim Company].[Company Code].[(All)]</local-name>
+            <parent-name>[Dim Company].[Company Code]</parent-name>
+            <remote-alias>[Dim Company].[Company Code].[(All)].[MEMBER_UNIQUE_NAME]</remote-alias>
+            <caption>(All)</caption>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='level'>
+            <remote-name>[Dim Company].[Company Code].[Company Code]</remote-name>
+            <local-name>[Dim Company].[Company Code].[Company Code]</local-name>
+            <parent-name>[Dim Company].[Company Code]</parent-name>
+            <remote-alias>[Dim Company].[Company Code].[Company Code].[MEMBER_UNIQUE_NAME]</remote-alias>
+            <caption>Company Code</caption>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>5</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;NAME( [$Dim Company].[Company Code] )&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='hierarchy'>
+            <remote-name>[Dim Quarter].[Quarter]</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Dim Quarter].[Quarter]</local-name>
+            <parent-name>[Dim Quarter]</parent-name>
+            <remote-alias>[Dim Quarter].[Quarter]</remote-alias>
+            <caption>Quarter</caption>
+            <aggregation>Count</aggregation>
+            <approx-count>5</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='ALL_MEMBER'>&quot;[Dim Quarter].[Quarter].[All]&quot;</attribute>
+              <attribute datatype='string' name='HIERARCHY_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='boolean' name='HIERARCHY_USER'>false</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='hierarchy'>
+            <remote-name>[Dim Quarter].[Quarter Id]</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Dim Quarter].[Quarter Id]</local-name>
+            <parent-name>[Dim Quarter]</parent-name>
+            <remote-alias>[Dim Quarter].[Quarter Id]</remote-alias>
+            <caption>Quarter Id</caption>
+            <aggregation>Count</aggregation>
+            <approx-count>57</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='ALL_MEMBER'>&quot;[Dim Quarter].[Quarter Id].[All]&quot;</attribute>
+              <attribute datatype='string' name='HIERARCHY_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='boolean' name='HIERARCHY_USER'>false</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='hierarchy'>
+            <remote-name>[Dim Quarter].[Year]</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[Dim Quarter].[Year]</local-name>
+            <parent-name>[Dim Quarter]</parent-name>
+            <remote-alias>[Dim Quarter].[Year]</remote-alias>
+            <caption>Year</caption>
+            <aggregation>Count</aggregation>
+            <approx-count>15</approx-count>
+            <contains-null>true</contains-null>
+            <default>true</default>
+            <attributes>
+              <attribute datatype='string' name='ALL_MEMBER'>&quot;[Dim Quarter].[Year].[All]&quot;</attribute>
+              <attribute datatype='string' name='HIERARCHY_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='boolean' name='HIERARCHY_USER'>false</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='level'>
+            <remote-name>[Dim Quarter].[Quarter].[(All)]</remote-name>
+            <remote-type>all</remote-type>
+            <local-name>[Dim Quarter].[Quarter].[(All)]</local-name>
+            <parent-name>[Dim Quarter].[Quarter]</parent-name>
+            <remote-alias>[Dim Quarter].[Quarter].[(All)].[MEMBER_UNIQUE_NAME]</remote-alias>
+            <caption>(All)</caption>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='level'>
+            <remote-name>[Dim Quarter].[Quarter].[Quarter]</remote-name>
+            <local-name>[Dim Quarter].[Quarter].[Quarter]</local-name>
+            <parent-name>[Dim Quarter].[Quarter]</parent-name>
+            <remote-alias>[Dim Quarter].[Quarter].[Quarter].[MEMBER_UNIQUE_NAME]</remote-alias>
+            <caption>Quarter</caption>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>5</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;NAME( [$Dim Quarter].[Quarter] )&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='level'>
+            <remote-name>[Dim Quarter].[Quarter Id].[(All)]</remote-name>
+            <remote-type>all</remote-type>
+            <local-name>[Dim Quarter].[Quarter Id].[(All)]</local-name>
+            <parent-name>[Dim Quarter].[Quarter Id]</parent-name>
+            <remote-alias>[Dim Quarter].[Quarter Id].[(All)].[MEMBER_UNIQUE_NAME]</remote-alias>
+            <caption>(All)</caption>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='level'>
+            <remote-name>[Dim Quarter].[Quarter Id].[Quarter Id]</remote-name>
+            <local-name>[Dim Quarter].[Quarter Id].[Quarter Id]</local-name>
+            <parent-name>[Dim Quarter].[Quarter Id]</parent-name>
+            <remote-alias>[Dim Quarter].[Quarter Id].[Quarter Id].[MEMBER_UNIQUE_NAME]</remote-alias>
+            <caption>Quarter Id</caption>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>57</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;NAME( [$Dim Quarter].[Quarter Id] )&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='level'>
+            <remote-name>[Dim Quarter].[Year].[(All)]</remote-name>
+            <remote-type>all</remote-type>
+            <local-name>[Dim Quarter].[Year].[(All)]</local-name>
+            <parent-name>[Dim Quarter].[Year]</parent-name>
+            <remote-alias>[Dim Quarter].[Year].[(All)].[MEMBER_UNIQUE_NAME]</remote-alias>
+            <caption>(All)</caption>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='level'>
+            <remote-name>[Dim Quarter].[Year].[Year]</remote-name>
+            <local-name>[Dim Quarter].[Year].[Year]</local-name>
+            <parent-name>[Dim Quarter].[Year]</parent-name>
+            <remote-alias>[Dim Quarter].[Year].[Year].[MEMBER_UNIQUE_NAME]</remote-alias>
+            <caption>Year</caption>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>15</approx-count>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;NAME( [$Dim Quarter].[Year] )&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>[Measures].[Revenue]</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Revenue]</local-name>
+            <remote-alias>[Measures].[Revenue]</remote-alias>
+            <caption>Revenue</caption>
+            <family>Fact Table</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='MEASURE_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;[Fact Table].[Revenue]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>[Measures].[Open]</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Open]</local-name>
+            <remote-alias>[Measures].[Open]</remote-alias>
+            <caption>Open</caption>
+            <family>Fact Table</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='MEASURE_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;[Fact Table].[Open]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>[Measures].[Close]</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Close]</local-name>
+            <remote-alias>[Measures].[Close]</remote-alias>
+            <caption>Close</caption>
+            <family>Fact Table</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='MEASURE_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;[Fact Table].[Close]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>[Measures].[High]</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[High]</local-name>
+            <remote-alias>[Measures].[High]</remote-alias>
+            <caption>High</caption>
+            <family>Fact Table</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='MEASURE_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;[Fact Table].[High]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>[Measures].[Low]</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Low]</local-name>
+            <remote-alias>[Measures].[Low]</remote-alias>
+            <caption>Low</caption>
+            <family>Fact Table</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='MEASURE_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;[Fact Table].[Low]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>[Measures].[Volume]</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Volume]</local-name>
+            <remote-alias>[Measures].[Volume]</remote-alias>
+            <caption>Volume</caption>
+            <family>Fact Table</family>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='MEASURE_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;[Fact Table].[Volume]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>[Measures].[Sentiments Score]</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Sentiments Score]</local-name>
+            <remote-alias>[Measures].[Sentiments Score]</remote-alias>
+            <caption>Sentiments Score</caption>
+            <family>Fact Table</family>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='MEASURE_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;[Fact Table].[Sentiments Score]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='measure'>
+            <remote-name>[Measures].[Fact Table Count]</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Fact Table Count]</local-name>
+            <remote-alias>[Measures].[Fact Table Count]</remote-alias>
+            <caption>Fact Table Count</caption>
+            <family>Fact Table</family>
+            <local-type>integer</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='MEASURE_DISPLAY_FOLDER'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='SQL_COLUMN_NAME'>&quot;[Fact Table].[Fact Table Count]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='granularity'>
+            <remote-name>Fact Table</remote-name>
+            <remote-type>0</remote-type>
+            <remote-alias>Fact Table</remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DIMENSION_GRANULARITY'>&quot;[Dim Company].[Company Code]&quot;</attribute>
+              <attribute datatype='string' name='DIMENSION_UNIQUE_NAME'>&quot;[Dim Company]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='granularity'>
+            <remote-name>Fact Table</remote-name>
+            <remote-type>0</remote-type>
+            <remote-alias>Fact Table</remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DIMENSION_GRANULARITY'>&quot;[Dim Quarter].[Quarter Id]&quot;</attribute>
+              <attribute datatype='string' name='DIMENSION_UNIQUE_NAME'>&quot;[Dim Quarter]&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <layout dim-ordering='ordinal' dim-percentage='0.464286' measure-ordering='ordinal' measure-percentage='0.535714' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Stocks Cube (stock)' name='msolap.0xsipeu1bufx7i11nu5dv0r0ymri' />
+          </datasources>
+          <datasource-dependencies datasource='msolap.0xsipeu1bufx7i11nu5dv0r0ymri'>
+            <column-instance column='[Dim Company].[Company Code].[Company Code]' derivation='None' name='[Dim Company].[Company Code].[none:Company Code:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Dim Quarter].[Quarter].[Quarter]' derivation='None' name='[Dim Quarter].[Quarter].[none:Quarter:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Dim Quarter].[Year].[Year]' derivation='None' name='[Dim Quarter].[Year].[none:Year:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Close]' derivation='None' name='[none:Close:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Revenue]' derivation='None' name='[none:Revenue:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Sentiments Score]' derivation='None' name='[none:Sentiments Score:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[none:Close:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[none:Revenue:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[none:Sentiments Score:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[Multiple Values]' field-type='quantitative' scale='log' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[Multiple Values]</rows>
+        <cols>([msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[Dim Company].[Company Code].[none:Company Code:nk] / ([msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[Dim Quarter].[Quarter].[none:Quarter:nk] / ([msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[Dim Quarter].[Year].[none:Year:nk] / [msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[:Measure Names])))</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[:Measure Names]</field>
+            <field>[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[Dim Company].[Company Code].[none:Company Code:nk]</field>
+            <field>[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[Dim Quarter].[Quarter].[none:Quarter:nk]</field>
+            <field>[msolap.0xsipeu1bufx7i11nu5dv0r0ymri].[Dim Quarter].[Year].[none:Year:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{5AED6AFD-A60B-4E7C-B010-B8FF60A03E52}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+      wNb8f4OR6SYda2ZuAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>

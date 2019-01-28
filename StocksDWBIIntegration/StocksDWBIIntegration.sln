@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "StocksDWBIIntegration", "StocksDWBIIntegration\StocksDWBIIntegration.dtproj", "{C5BA7C3D-EC7E-4F55-A62D-EE64DC703013}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5BA7C3D-EC7E-4F55-A62D-EE64DC703013}.Development|Default.ActiveCfg = Development
+		{C5BA7C3D-EC7E-4F55-A62D-EE64DC703013}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {141DD571-5365-44B5-8E19-2094BA409BA7}
+	EndGlobalSection
+EndGlobal
