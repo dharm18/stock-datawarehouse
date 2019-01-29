@@ -9,4 +9,4 @@ This project is a part of the continuous assessment for Data warehouse and Busin
 
 **Link to report**: [Report](https://www.vdharam.com/projects/stocks-datawarehouse-business-intelligence-project/)
 
-** Video Link ** : [Youtube](https://www.youtube.com/watch?v=vntE_DJrFcc&list=UU7N60OPxgzD2BhfAF1Uy4QA)
+**Video Link** : [Youtube](https://www.youtube.com/watch?v=vntE_DJrFcc&list=UU7N60OPxgzD2BhfAF1Uy4QA)
