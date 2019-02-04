@@ -2,6 +2,8 @@
 
 This project is a part of the continuous assessment for Data warehouse and Business Intelligence module of Masters in Data Analytics course at National College Of Ireland where we were asked to architect, populate and explore a Data Warehouse for Business Intelligence.
 
+![picture alt](https://www.vdharam.com/images/projects/stocks_dwbi_wallpaper.jpg "Stock market data warehouse & business intelligence project")
+
 ### PROJECT DETAILS
 **Module Name**: Datawarehouse & Business Intelligence
 
