@@ -10,3 +10,17 @@ This project is a part of the continuous assessment for Data warehouse and Busin
 **Link to report**: [Report](https://www.vdharam.com/projects/stocks-datawarehouse-business-intelligence-project/)
 
 **Video Link** : [Youtube](https://www.youtube.com/watch?v=vntE_DJrFcc&list=UU7N60OPxgzD2BhfAF1Uy4QA)
+
+**Tools & Languages Used**
+1. Visual Studio 2017
+2. SQL Server Management Studio 2017
+3. SQL Server developer edition 2017
+4. Tableau Desktop Student's License
+5. R programming
+6. R Studio
+
+### Steps to run the project
+
+1. Load 'StocksDWBIIntegration' as Integration Project in Visual Studio.
+2. Load 'StockMultidimensionalProject' as Multidimensional project in Visual Studio
+
