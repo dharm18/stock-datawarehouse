@@ -23,4 +23,5 @@ This project is a part of the continuous assessment for Data warehouse and Busin
 
 1. Load 'StocksDWBIIntegration' as Integration Project in Visual Studio.
 2. Load 'StockMultidimensionalProject' as Multidimensional project in Visual Studio
-
+3. Load 'StockDWBI' in R studio as R project
+4. ***stockvssentiments.twb*** contains Data Visualisation sheets which demonstrates the non-trivial business queries answered on the the deployed OLAP cube.
