@@ -1,4 +1,4 @@
-# Data Warehouse & Business Intelligence Project on Stocks Dataset
+# Data Warehouse & Business Intelligence Project on Stock Market Dataset
 
 This project is a part of the continuous assessment for Data warehouse and Business Intelligence module of Masters in Data Analytics course at National College Of Ireland where we were asked to architect, populate and explore a Data Warehouse for Business Intelligence.
 
